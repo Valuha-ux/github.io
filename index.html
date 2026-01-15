@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<link rel="stylesheet" href="index.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="МИР БАЛЬНЫХ ТАНЦЕВ" />
+    <meta name="Keywords" content="МИР БАЛЬНЫХ ТАНЦЕВ, ТАНЦЫ, БАЛЬНЫЕ ТАНЦЫ, МИР ТАНЦЕВ">
+    <title>Мир бальных танцев</title>
+    <link rel="shortcut icon" type="image/jpg" href="logo.ico" />
+</head>
+<body>
+    <div id="container">
+        <p style="font-size: 50px; text-align: center;"><img src="img/logo.png" alt="картинка" height="70" width="100">МИР БАЛЬНЫХ ТАНЦЕВ</p>
+
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('tab1')">История</div>
+            <div class="tab" onclick="showTab('tab2')">Виды</div>
+            <div class="tab" onclick="showTab('tab3')">Костюмы</div>
+            <div class="tab" onclick="showTab('tab4')">Мое выступление</div>
+        </div>
+        <div class="tab-content active" id="tab1">
+            <img src="img/1.png" alt="картинка" height="200" width="200" class="right-image">
+              <p>Средневековье и Возрождение: первые светские балы появились во Франции и Италии. Танцы стали важной частью придворной культуры, где строго соблюдались правила этикета.
+
+Барокко и XVIII–XIX века: придворные танцы усложнились, появились павана, менуэт, полька и вальс. Танцы стали символом аристократического общества.
+
+XX век: бальные танцы вышли за пределы дворцов и стали доступны широким слоям населения. В 1924 году в Англии начали стандартизировать движения, а в 1936 году прошёл первый чемпионат мира среди любителей.
+
+Современность: сегодня существует две программы — европейская (стандарт) и латиноамериканская. В официальных соревнованиях исполняют 10 танцев: от вальса и танго до самбы и ча-ча-ча.</p>
+        </div>
+
+        <div class="tab-content" id="tab2">
+            <img src="img/2.png" alt="картинка" height="200" width="200" class="right-image">
+              <p>Бальные танцы делятся на две программы: европейскую и латиноамериканскую. Европейская включает вальс, танго, фокстрот, квикстеп. Латиноамериканская — самба, ча-ча-ча, румба, джайв, пасодобль. Это сочетание спорта, искусства и культуры, популярное во всём мире.</p>
+        </div>
+
+        <div class="tab-content" id="tab3">
+            <img src="img/3.png" alt="картинка" height="200" width="200" class="right-image">
+              <p>Костюмы для бальных танцев делятся на два типа:
+
+Стандарт — длинные платья у женщин, фрак у мужчин. Всё строго и элегантно.
+
+Латина — яркие, короткие наряды с блестками, открытой спиной и выразительными деталями.
+
+Одежда подчёркивает стиль танца и помогает выразить образ.</p>
+        </div>
+
+        <div class="tab-content" id="tab4">
+           <img src="img/4.jpg" alt="картинка" height="400" width="800" >
+        </div>
+    <main>
+    <div class="slider-container">
+        <div class="slider">
+            <img src="img/i1.jpg" alt="картинка">
+            <img src="img/i2.jpg" alt="картинка">
+            <img src="img/i3.jpg" alt="картинка">
+        </div>
+        <button class="prev-button" aria-label="#">&lt;</button>
+        <button class="next-button" aria-label="#">&gt;</button>
+    </div>
+    </main>
+    <div class="popa">
+        <p><b><h1>Подарок от брестской области губернатору</h1></b></p>
+        <img src="img/5.jpg" alt="картинка" height="350" width="350">
+    </div>
+    </div>
+    </body>
+        <footer>
+            <p>Добро пожаловать в мир бальных танцев!</p>
+        </footer>
+        <script>
+           
+            function showTab(tabId) {
+    
+                var tabs = document.getElementsByClassName("tab-content");
+                for (var i = 0; i < tabs.length; i++) {
+                    tabs[i].classList.remove("active");
+                }
+
+                var tab = document.getElementById(tabId);
+                tab.classList.add("active");
+
+                
+                var activeTabs = document.getElementsByClassName("tab");
+                for (var i = 0; i < activeTabs.length; i++) {
+                    activeTabs[i].classList.remove("active");
+                }
+
+                
+                var activeTab = document.querySelector(`.tab[data-tab="${tabId}"]`);
+                activeTab.classList.add("active");
+            }
+        </script>
+        <script>
+    const slider = document.querySelector('.slider');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    const slides = Array.from(slider.querySelectorAll('img'));
+    const slideCount = slides.length;
+    let slideIndex = 0;
+
+    prevButton.addEventListener('click', showPreviousSlide);
+    nextButton.addEventListener('click', showNextSlide);
+
+
+    function showPreviousSlide() {
+        slideIndex = (slideIndex - 1 + slideCount) % slideCount;
+        updateSlider();
+    }
+
+    function showNextSlide() {
+        slideIndex = (slideIndex + 1) % slideCount;
+        updateSlider();
+    }
+
+    function updateSlider() {
+        slides.forEach((slide, index) => {
+            if (index === slideIndex) {
+                slide.style.display = 'block';
+            } else {
+                slide.style.display = 'none';
+            }
+        });
+    }
+
+    updateSlider();
+    </script>
+    <script>
+   
+    function showTab(tabId) {
+
+        var tabs = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active");
+        }
+
+        var tab = document.getElementById(tabId);
+        tab.classList.add("active");
+
+        
+        var activeTabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < activeTabs.length; i++) {
+            activeTabs[i].classList.remove("active");
+        }
+
+        
+        var activeTab = document.querySelector(`.tab[data-tab="${tabId}"]`);
+        activeTab.classList.add("active");
+    }
+    </script>
+</html>
